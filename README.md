@@ -101,7 +101,6 @@
 		- step-end（跳过最后一个帧）
 		- https://designmodo.com/steps-css-animations/
 		- 学习如何使用 steps - https://designmodo.com/demo/stepscss/car.html
-  steps demo
 
 ## css 动画实践
 

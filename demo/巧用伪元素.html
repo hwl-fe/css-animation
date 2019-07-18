@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>巧用伪元素实现动画效果</title>
+    <style>
+        body {
+            font-size: 150px;
+            font-weight: bold;
+            background: #494a5f;
+        }
+
+        span {
+            display: inline-block;
+            position: relative;
+            color: #fff;
+            transition: all .8s;
+            transform-style: preserve-3d;
+            perspective: 500px;
+            cursor: pointer;
+        }
+
+        /* 立体字 */
+        span:after {
+            content: attr(data-content);
+            position: absolute;
+            color: #66677c;
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transform: rotateY(0deg);
+            transition: all .8s;
+        }
+
+        /* 阴影 */
+        span:before {
+            content: attr(data-content);
+            position: absolute;
+            color: rgba(0, 0, 0, .2);
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transform: scale(1, 1) skew(0deg, 0deg);
+            transition: all .8s;
+        }
+
+        /* 立体字 */
+        span:hover:after {
+            content: attr(data-content);
+            position: absolute;
+            color: #66677c;
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transform: rotateY(-40deg);
+        }
+
+        /* 阴影 */
+        span:hover:before {
+            content: attr(data-content);
+            position: absolute;
+            color: rgba(0, 0, 0, .2);
+            top: 0;
+            left: 0;
+            transform-origin: left top;
+            transform: scale(1.1, 1) skew(0deg, 10deg);
+        }
+    </style>
+</head>
+
+<body>
+    <span data-content="动">动</span>
+    <span data-content="画">画</span>
+    <span data-content="效">效</span>
+    <span data-content="果">果</span>
+</body>
+
+</html>

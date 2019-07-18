@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>steps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            color: #333
+        }
+
+        #container {
+            margin: 0 auto;
+            width: 900px;
+            font-family: arial
+        }
+
+        .heart {
+            background: url(http://www.jq22.com/demo/jquery-dz20160204/images/web_heart_animation.png);
+            background-position: left;
+            background-repeat: no-repeat;
+            height: 100px;
+            width: 100px;
+            cursor: pointer;
+            position: absolute;
+            left: -14px;
+            background-size: 2900%
+        }
+
+        .heart:hover,
+        .heart:focus {
+            background-position: right
+        }
+
+        .feed {
+            clear: both;
+            margin-bottom: :20px;
+            height: 150px;
+            position: relative
+        }
+
+        a {
+            color: #7ac9ed
+        }
+
+        p {
+            margin: 0;
+            padding: 0
+        }
+
+
+        @keyframes heartBlast {
+            0% {
+                background-position: left
+            }
+
+            100% {
+                background-position: right
+            }
+        }
+
+        .heartAnimation {
+            display: inline-block;
+            animation-name: heartBlast;
+            animation-duration: .8s;
+            animation-iteration-count: 1;
+            animation-timing-function: steps(28);
+            background-position: right
+        }
+    </style>
+    <!--引用jquery库-->
+    <script src="https://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+</head>
+
+<body>
+    <article class="htmleaf-container">
+        <div id="container">
+            <h3>点击下面的红心查看效果！</h3>
+            <div class="feed" id="feed1">
+                <div class="heart " id="like1" rel="like"></div>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        $(document).ready(function () {
+
+            $('body').on("click", '.heart', function () {
+
+                var A = $(this).attr("id");
+                var B = A.split("like");
+                var messageID = B[1];
+                $(this).css("background-position", "")
+                var D = $(this).attr("rel");
+
+                if (D === 'like') {
+                    $(this).addClass("heartAnimation").attr("rel", "unlike");
+
+                } else {
+                    $(this).removeClass("heartAnimation").attr("rel", "like");
+                    $(this).css("background-position", "left");
+                }
+
+
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
